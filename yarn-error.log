@@ -1,5 +1,5 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Users\ernan\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add @types/dayjs -D
+  C:\Program Files\nodejs\node.exe C:\Users\ernan\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add @typs/swagger-ui-express -D
 
 PATH: 
   C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;D:\ProgramasPesados\php;C:\ProgramData\ComposerSetup\bin;D:\ProgramasPesados2\Git\cmd;C:\Program Files\nodejs\;D:\ProgramasPesados2\WinSCP\;C:\Program Files\UniConvertor-2.0rc5\;D:\ProgramasPesados2\xampp\php;D:\ProgramasPesados2\xampp\mysql\bin;D:\flutter\bin;D:\ProgramasPesados2\SDKAndroid\platform-tools;D:\ProgramasPesados2\SDKAndroid\bin;D:\ProgramasPesados2\SDKAndroid\cmdline-tools\bin;C:\Program Files (x86)\Microsoft SQL Server\150\DTS\Binn\;C:\Program Files\Azure Data Studio\bin;D:\ProgramasPesados2\gs10.00.0\bin;C:\gs;;C:\Program Files\Docker\Docker\resources\bin;C:\Users\ernan\AppData\Local\Microsoft\WindowsApps;C:\Users\ernan\AppData\Roaming\Composer\vendor\bin;C:\Users\ernan\AppData\Roaming\npm;C:\Users\ernan\AppData\Local\Programs\Microsoft VS Code\bin;D:\ProgramasPesados2\PyCharm Community Edition 2022.1.3\bin;C:\Users\ernan\AppData\Local\atom\bin
@@ -14,7 +14,7 @@ Platform:
   win32 x64
 
 Trace: 
-  Error: https://registry.yarnpkg.com/@types%2fdayjs: Not found
+  Error: https://registry.yarnpkg.com/@typs%2fswagger-ui-express: Not found
       at Request.params.callback [as _callback] (C:\Users\ernan\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:66145:18)
       at Request.self.callback (C:\Users\ernan\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:140890:22)
       at Request.emit (node:events:527:28)
@@ -49,7 +49,8 @@ npm manifest:
       "dayjs": "^1.11.7",
       "express": "^4.18.2",
       "express-async-errors": "^3.1.1",
-      "jsonwebtoken": "^9.0.0"
+      "jsonwebtoken": "^9.0.0",
+      "swagger-ui-express": "^4.6.0"
     }
   }
 
@@ -925,6 +926,18 @@ Lockfile:
     version "1.0.0"
     resolved "https://registry.yarnpkg.com/supports-preserve-symlinks-flag/-/supports-preserve-symlinks-flag-1.0.0.tgz#6eda4bd344a3c94aea376d4cc31bc77311039e09"
     integrity sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==
+  
+  swagger-ui-dist@>=4.11.0:
+    version "4.15.5"
+    resolved "https://registry.yarnpkg.com/swagger-ui-dist/-/swagger-ui-dist-4.15.5.tgz#cda226a79db2a9192579cc1f37ec839398a62638"
+    integrity sha512-V3eIa28lwB6gg7/wfNvAbjwJYmDXy1Jo1POjyTzlB6wPcHiGlRxq39TSjYGVjQrUSAzpv+a7nzp7mDxgNy57xA==
+  
+  swagger-ui-express@^4.6.0:
+    version "4.6.0"
+    resolved "https://registry.yarnpkg.com/swagger-ui-express/-/swagger-ui-express-4.6.0.tgz#fc297d80c614c80f5d7def3dab50b56428cfe1c9"
+    integrity sha512-ZxpQFp1JR2RF8Ar++CyJzEDdvufa08ujNUJgMVTMWPi86CuQeVdBtvaeO/ysrz6dJAYXf9kbVNhWD7JWocwqsA==
+    dependencies:
+      swagger-ui-dist ">=4.11.0"
   
   to-regex-range@^5.0.1:
     version "5.0.1"

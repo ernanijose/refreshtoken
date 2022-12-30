@@ -1,0 +1,207 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "API de refresh de token utilizando o nodejs com typescript",
+        "description": "Esta API tem como objetivo efetuar o refresh token e também utilizando o prima como ORM",
+        "termsOfService": "http://localhost:3535",
+        "contact": {
+            "email": "test@test.com"
+        },
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:3535",
+            "description": "API Teste"
+        },
+        {
+            "url": "http://localhost:3535/v1",
+            "description": "API Produção"
+        }
+    ],
+    "paths": {
+        "/users": {
+            "post": {
+                "summary": "Cadastro de Usuário",
+                "description": "Essa rota é responsável por cadastrar o usuários da API",
+                "tags": ["Login"],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CadastroUsuario"
+                            },
+                            "examples": {
+                                "createuser": {
+                                    "value": {
+                                        "name": "user1",
+                                        "username": "username1",
+                                        "password": "123456"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Usuario cadastrado com sucesso!, irá retornar o objeto com os dados desse usuário cadastrado",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "items": {
+                                        "type": "object",
+                                        "$ref": "#/components/schemas/CadastroUsuarioRetorno"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "User already exists!"
+                    }
+                }
+            }
+        },
+        "/login": {
+            "post": {
+                "summary": "Efetuar login",
+                "description": "Essa rota é responsável por efetuar o login",
+                "tags": ["Login"],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/LoginEfetuar"
+                            },
+                            "examples": {
+                                "createuser": {
+                                    "value": {
+                                        "username": "username1",
+                                        "password": "123456"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Login efetuado com sucesso",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "items": {
+                                        "type": "object",
+                                        "$ref": "#/components/schemas/Login"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/courses": {
+            "get": {
+                "summary": "Listar Cursos",
+                "description": "Essa rota é responsável por listar os cursos",
+                "tags": ["Courses"],
+                "security": [{"bearerAuth": []}],
+                "responses": {
+                    "200": {
+                        "description": "Lista de Usuários",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "items": {
+                                        "type": "object",
+                                        "$ref": "#/components/schemas/ListaDeCursos"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "token invalid!"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "CadastroUsuario": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string"
+                    },
+                    "username": {
+                        "type": "string"
+                    },
+                    "password": {
+                        "type": "string"
+                    }
+                }
+            },
+            "CadastroUsuarioRetorno": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "username": {
+                        "type": "string"
+                    },
+                    "password": {
+                        "type": "string"
+                    }
+                }
+            },
+            "LoginEfetuar": {
+                "type": "object",
+                "properties": {
+                    "username": {
+                        "type": "string"
+                    },
+                    "password": {
+                        "type": "object"
+                    }
+                }
+            },
+            "Login": {
+                "type": "object",
+                "properties": {
+                    "token": {
+                        "type": "string"
+                    },
+                    "refreshToken": {
+                        "type": "object"
+                    }
+                }
+            },
+            "ListaDeCursos": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "number"
+                    },
+                    "name": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "securitySchemes": {
+            "bearerAuth": {
+                "type": "http",
+                "scheme": "bearer",
+                "bearerFormat": "JWT"
+            }
+        }
+    }
+}
